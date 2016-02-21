@@ -68,4 +68,20 @@ RSpec.describe BinaryTree::Set do
       end
     end
   end
+
+  describe '#each' do
+    subject { described_class.new }
+    before do
+      subject << :a
+      subject << :b
+      subject << :c
+      subject << :d
+    end
+
+    it 'yields each item' do
+      yielded_items = []
+      subject.each { |i| yielded_items << i }
+      expect(yielded_items).to match_array([:a, :b, :c, :d])
+    end
+  end
 end

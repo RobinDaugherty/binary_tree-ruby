@@ -16,6 +16,9 @@ module BinaryTree
       def store(*)
         false
       end
+
+      def each
+      end
     end
   end
 end
