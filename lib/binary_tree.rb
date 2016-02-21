@@ -1,5 +1,5 @@
 require "binary_tree/version"
+require "binary_tree/hash"
 
 module BinaryTree
-  # Your code goes here...
 end

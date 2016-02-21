@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = BinaryTree::VERSION
   spec.authors       = ["Robin Daugherty"]
   spec.email         = ["robin@robindaugherty.net"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Binary Tree implementations for Ruby.}
+  spec.description   = %q{Data structures for Ruby that use binary trees for storage.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec", "~> 3.0"
 end
