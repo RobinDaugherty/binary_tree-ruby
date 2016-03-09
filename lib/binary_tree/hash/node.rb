@@ -5,8 +5,8 @@ module BinaryTree
     class Node
       # Instantiates a new node. The key and value are optional so that a new tree containing
       # no value can be instantiated.
-      def initialize(key, value, &block)
-        store_in_self(value, key) if key
+      def initialize(key, value, hk = nil, &block)
+        store_in_self(value, key, hk) if key
         @left = EmptyNode.new
         @right = EmptyNode.new
         @default_proc = block
@@ -44,13 +44,13 @@ module BinaryTree
         end
       end
 
-      def store(v, k)
-        return store_in_self(v, k) unless key
+      def store(v, k, hk = nil)
+        return store_in_self(v, k, hk) unless key
 
-        hk = k.hash
+        hk ||= k.hash
         case hashed_key <=> hk
-        when 1 then store_left(hk, v, k)
-        when -1 then store_right(hk, v, k)
+        when 1 then store_left(v, k, hk)
+        when -1 then store_right(v, k, hk)
         when 0 then self.value = v
         end
       end
@@ -60,18 +60,18 @@ module BinaryTree
       attr_reader :default_proc
       attr_accessor :left, :right, :value, :key, :hashed_key
 
-      def store_in_self(v, k)
+      def store_in_self(v, k, hk)
         self.value = v
         self.key = k
-        self.hashed_key = k.hash
+        self.hashed_key = hk || k.hash
       end
 
-      def store_left(hk, v, k)
-        left.store(hk, v, k) or self.left = self.class.new(k, v)
+      def store_left(v, k, hk)
+        left.store(v, k, hk) or self.left = self.class.new(k, v)
       end
 
-      def store_right(hk, v, k)
-        right.store(hk, v, k) or self.right = self.class.new(k, v)
+      def store_right(v, k, hk)
+        right.store(v, k, hk) or self.right = self.class.new(k, v)
       end
     end
   end

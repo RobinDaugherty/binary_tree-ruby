@@ -82,6 +82,22 @@ RSpec.describe BinaryTree::Hash do
       end
     end
 
+    context 'adding a bunch of values' do
+      before do
+        subject[:a] = 1
+        subject[:b] = 2
+        subject[:c] = 3
+        subject[:d] = 4
+      end
+
+      it 'returns the items' do
+        expect(subject[:a]).to eq(1)
+        expect(subject[:b]).to eq(2)
+        expect(subject[:c]).to eq(3)
+        expect(subject[:d]).to eq(4)
+      end
+    end
+
     context 'updating a value' do
       before do
         subject[:test] = 101

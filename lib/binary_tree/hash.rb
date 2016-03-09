@@ -7,7 +7,7 @@ module BinaryTree
     # If a block is passed, it will be called when a value is looked up that does not exist
     # in the tree. The block will be called with |tree, missing_key|.
     def self.new(first_key = nil, first_value = nil, &block)
-      Node.new(first_key, first_value, &block)
+      Node.new(first_key, first_value, nil, &block)
     end
   end
 end
